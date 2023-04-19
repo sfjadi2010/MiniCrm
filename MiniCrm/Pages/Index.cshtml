@@ -1,0 +1,44 @@
+﻿@page
+@model MiniCrm.Pages.IndexModel
+@{
+    ViewData["Title"] = "Customer page";
+}
+
+@await Html.PartialAsync("_AddCustomerModal")
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 text-start">
+            <h1 class="display-4">Customers</h1>
+        </div>
+        <div class="col-6 display-4 text-end">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCustomerModal">
+                + Add Customer
+            </button>
+        </div>
+    </div>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model.Customers)
+            {
+                <tr>
+                    <td>@customer.FirstName</td>
+                    <td>@customer.LastName</td>
+                    <td>@customer.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

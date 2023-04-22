@@ -18,10 +18,10 @@ namespace MiniCrm.Pages
             _customerDataContext = customerDataContext;
         }
 
-        public List<MiniCrm.Models.Customer> Customers { get; set; }
+        public List<Customer> Customers { get; set; }
 
         [BindProperty]
-        public Models.Customer NewCustomer { get; set; }
+        public Customer Customer { get; set; }
 
         public void OnGet()
         {
@@ -30,12 +30,7 @@ namespace MiniCrm.Pages
 
         public async Task<IActionResult?> OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _customerDataContext.Customers.Add(NewCustomer);
+            _customerDataContext.Customers.Add(Customer);
             await _customerDataContext.SaveChangesAsync();
 
             return RedirectToPage("./Index");

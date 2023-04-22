@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 /MiniCrm/MiniCrm.db-shm
 /MiniCrm/MiniCrm.db-wal
+/MiniCrm/MiniCrm.db-wal
+/MiniCrm/MiniCrm.db-shm
+/MiniCrm/MiniCrm.db

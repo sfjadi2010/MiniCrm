@@ -21,7 +21,7 @@ namespace MiniCrm.Models
         public CustomerSatus Status { get; set; }
         public CustomerType Type { get; set; }
 
-        public Address Address { get; set; }
+        public Address? Address { get; set; } 
     }
 
     public enum CustomerType

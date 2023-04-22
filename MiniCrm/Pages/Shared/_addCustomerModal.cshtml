@@ -43,7 +43,7 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="type">Type</label>
+                                <label asp-for="Customer.Type"></label>
                                 <select asp-for="Customer.Type" class="form-control">
                                     <option value="None">None</option>
                                     <option value="Regular">Regular</option>
@@ -54,6 +54,57 @@
                         </div>
 
                         <div class="col-md-6">
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Customer.Address.Street"></label>
+                                <input asp-for="Customer.Address.Street" type="text" class="form-control" placeholder="Enter street">
+                                <span asp-validation-for="Customer.Address.Street" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Customer.Address.City"></label>
+                                <input asp-for="Customer.Address.City" type="text" class="form-control" placeholder="Enter city">
+                                <span asp-validation-for="Customer.Address.City" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Customer.Address.State"></label>
+                                <input asp-for="Customer.Address.State" type="text" class="form-control" placeholder="Enter state">
+                                <span asp-validation-for="Customer.Address.State" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Customer.Address.ZipCode"></label>
+                                <input asp-for="Customer.Address.ZipCode" type="text" class="form-control" placeholder="Enter zip code">
+                                <span asp-validation-for="Customer.Address.ZipCode" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Customer.Address.Type"></label>
+                                <select asp-for="Customer.Address.Type" class="form-control">
+                                    <option value="None">None</option>
+                                    <option value="Home">Home</option>
+                                    <option value="Work">Work</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 

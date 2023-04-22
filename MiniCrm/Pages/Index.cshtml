@@ -36,28 +36,44 @@
     <hr />
     <div class="row">
         <div class="col-md-12">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion accordion-flush" id="customeraccordion">
                 @foreach (var customer in Model.Customers)
                 {
-                    <div class="accordion-item">
-                        <div class="row">
-                            <div class="col-md-4 ps-4">
-                                @customer.FirstName
+                    <div class="accordion-item mt-5">
+                        <p class="accordion-header" id="ca-@customer.Id">
+                            <div class="row">
+                                <div class="col-md-4 ps-4">
+                                    @customer.FirstName
+                                </div>
+                                <div class="col-md-4">
+                                    @customer.LastName
+                                </div>
+                                <div class="col-md-3">
+                                    @customer.Email
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ca-@customer.Id" aria-expanded="false" aria-controls="ca-@customer.Id" />
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                @customer.LastName
+                        </p>
+                       
+                        <div id="ca-@customer.Id" class="accordion-collapse collapse" aria-labelledby="ca-@customer.Id" data-bs-parent="#customeraccordion">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        @customer.Address?.Street
+                                    </div>
+                                    <div class="col-md-3">
+                                        @customer.Address?.City
+                                    </div>
+                                    <div class="col-md-3">
+                                        @customer.Address?.State
+                                    </div>
+                                    <div class="col-md-3">
+                                        @customer.Address?.ZipCode
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                @customer.Email
-                            </div>
-                            <div class="col-md-1">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" />
-                                </h2>
-                            </div>
-                        </div>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body"></div>
                         </div>
                     </div>
                 }

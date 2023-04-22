@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using MiniCrm.Data;
 using MiniCrm.Models;
 using MiniCrm.Pages.Shared;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace MiniCrm.Pages
 {
@@ -25,7 +27,11 @@ namespace MiniCrm.Pages
 
         public void OnGet()
         {
-            Customers = _customerDataContext.Customers.ToList();
+            Customers = _customerDataContext
+                .Customers
+                .Include(c => c.Address)
+                .ToList();
+                
         }
 
         public async Task<IActionResult?> OnPost()
